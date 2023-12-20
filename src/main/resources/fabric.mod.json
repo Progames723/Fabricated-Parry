@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "parry_this",
+  "version": "${version}",
+  "name": "Fabricated Parry",
+  "description": "funni mod",
+  "authors": [
+    "Progames723"
+  ],
+  "contact": {
+    "repo": "https://github.com/Progames723/Fabricated-Parry"
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/parry_this/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "dev.progames723.parry_this.client.FabricatedParryClient"
+    ],
+    "main": [
+      "dev.progames723.parry_this.FabricatedParry"
+    ]
+  },
+  "mixins": [
+    "parry_this.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

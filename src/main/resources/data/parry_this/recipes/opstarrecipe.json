@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "opstarlol",
+  "category": "equipment",
+  "pattern": [
+    "012",
+    "343",
+    "510"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:netherite_block"
+    },
+    "1": {
+      "item": "minecraft:nether_star"
+    },
+    "2": {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    },
+    "3": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "4": {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    "5": {
+      "item": "minecraft:shield"
+    }
+  },
+  "result": {
+    "item": "parry_this:thisshitisopasf",
+    "count": 2
+  }
+}
