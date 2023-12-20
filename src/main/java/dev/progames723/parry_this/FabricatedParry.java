@@ -20,7 +20,7 @@ public class FabricatedParry implements ModInitializer {
 	public static double vulnerable = 0.0;
 	public static double resistant = 0.0;
 
-	public static final String MOD_ID = "random_mod";
+	public static final String MOD_ID = "parry_this";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static void waitTicks(int ticks, Runnable action) {
 		//TODO Server wait n-ticks when called lol
