@@ -1,14 +1,19 @@
 package dev.progames723.parry_this;
 
+import fuzs.puzzleslib.api.entity.v1.DamageSourcesHelper;
+import fuzs.puzzleslib.api.event.v1.core.EventResult;
+import fuzs.puzzleslib.api.event.v1.data.MutableFloat;
+import fuzs.puzzleslib.api.event.v1.entity.living.LivingHurtCallback;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
-import net.minecraft.entity.damage.DamageEffects;
-import net.minecraft.entity.damage.DamageScaling;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageType;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.TypedActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,36 +24,32 @@ public class FabricatedParry implements ModInitializer {
 	public static boolean lateParry = false;
 	public static double vulnerable = 0.0;
 	public static double resistant = 0.0;
+	public static float eventDamage = 0.0f;
 
 	public static final String MOD_ID = "parry_this";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static void waitTicks(int ticks, Runnable action) {
-		//TODO Server wait n-ticks when called lol
+	public static final Logger LOGGER = LoggerFactory.getLogger("Fabricated Parry");
+	public static void sendMessage(Object message, PlayerEntity player){
+		player.sendMessage(Text.of(String.valueOf(message)));
 	}
 
 	@Override
 	public void onInitialize() {
-		//THIS IS A BREAKTHROUGH
-		DamageType damageTypePenetration = new DamageType("penetration", DamageScaling.NEVER, 0.1f, DamageEffects.HURT);
-		DamageSource damageSourcePenetration = new DamageSource(RegistryEntry.of(damageTypePenetration));
-		//CUSTOM DAMAGE SOURCE THAT'S SO INSANE
-		LOGGER.info("(fabricated_parry) Initialized!");
+		LOGGER.info("Initialized!");
 		ModItems.registerModItems();
 		// НЕ ТРОГАТЬ, КОД РАБОЧИЙ
 		UseItemCallback.EVENT.register((player, world, hand) -> {
-			if (player.getInventory().getMainHandStack().isIn(ItemTags.SWORDS)){
+			if (player.getInventory().getMainHandStack().isIn(ItemTags.SWORDS) && !player.getItemCooldownManager().isCoolingDown(player.getInventory().getMainHandStack().getItem())){
 				player.addExperience(1);
+				player.getItemCooldownManager().set(player.getInventory().getMainHandStack().getItem(), 10);
+				player.addStatusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE, 1, 0), player);
 				//TODO add parrying
+
 				LOGGER.info("A sword");
 				return TypedActionResult.success(player.getActiveItem());
 			} else {
 				LOGGER.info("Not a sword");
 				return TypedActionResult.pass(player.getActiveItem());
 			}
-		});
-		ServerLivingEntityEvents.ALLOW_DAMAGE.register((livingEntity, damageSource, damage) -> {
-			livingEntity.damage(damageSourcePenetration, damage);
-			return true;
 		});
 	}
 }

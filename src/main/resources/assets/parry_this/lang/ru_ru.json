@@ -1,10 +1,8 @@
 {
   "effect.parry_this.ressistant": "Устойчивый",
-  "death.attack.penetration.item": "%1$s был пробит с помощью %2$s используя %3$s",
-  "advancements.originactivesam.title": "Реактивный Сэм",
+  "death.attack.penetration.item": "%1$s был пробит благодоря %2$s используя %3$s",
   "effect.parry_this.vulnerable": "Уязвимый",
-  "death.attack.penetration": "%1$s был пробит с помощью %2$s",
+  "death.attack.penetration": "%1$s был пробит",
   "item.parry_this.thisshitisopasf": "Имбовая звезда",
-  "advancements.originactivesam.descr": "ужас",
-  "death.attack.penetration.player": "%1$s был пробит с помощью %2$s"
+  "death.attack.penetration.player": "%1$s был пробит благодоря %2$s"
 }
