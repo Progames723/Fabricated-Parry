@@ -4,5 +4,6 @@
   "effect.parry_this.vulnerable": "Vulnerable",
   "death.attack.penetration": "%1$s got penetrated",
   "item.parry_this.thisshitisopasf": "Op star",
-  "death.attack.penetration.player": "%1$s got penetrated by %2$s"
+  "death.attack.penetration.player": "%1$s got penetrated by %2$s",
+  "perfect_parry.message": "A perfect parry! You ignored %1$s damage!"
 }

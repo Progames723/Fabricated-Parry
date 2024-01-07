@@ -4,5 +4,6 @@
   "effect.parry_this.vulnerable": "Уязвимый",
   "death.attack.penetration": "%1$s был пробит",
   "item.parry_this.thisshitisopasf": "Имбовая звезда",
-  "death.attack.penetration.player": "%1$s был пробит благодоря %2$s"
+  "death.attack.penetration.player": "%1$s был пробит благодоря %2$s",
+  "perfect_parry.message": "Идеальное паррирование! Вы заблокировали %1$s урона!"
 }
