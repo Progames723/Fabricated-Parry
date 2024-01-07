@@ -20,7 +20,26 @@ import java.util.Vector;
 
 public class DamageTypes {
 	public static final RegistryKey<DamageType> weDontTalkAboutThisOne = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier(FabricatedParry.MOD_ID, "penetration"));
-
+	public static final Collection<TagKey<DamageType>> what(){
+		TagKey<DamageType> damageTypeTag1 = DamageTypeTags.BYPASSES_ARMOR;
+		TagKey<DamageType> damageTypeTag2 = DamageTypeTags.BYPASSES_COOLDOWN;
+		TagKey<DamageType> damageTypeTag3 = DamageTypeTags.BYPASSES_EFFECTS;
+		TagKey<DamageType> damageTypeTag4 = DamageTypeTags.BYPASSES_ENCHANTMENTS;
+		TagKey<DamageType> damageTypeTag5 = DamageTypeTags.BYPASSES_SHIELD;
+		TagKey<DamageType> damageTypeTag6 = DamageTypeTags.BYPASSES_INVULNERABILITY;
+		TagKey<DamageType> damageTypeTag7 = DamageTypeTags.BYPASSES_RESISTANCE;
+		Vector<TagKey<DamageType>> vector = new Vector<>(6);
+		vector.add(damageTypeTag1);
+		vector.add(damageTypeTag2);
+		vector.add(damageTypeTag3);
+		vector.add(damageTypeTag4);
+		vector.add(damageTypeTag5);
+		vector.add(damageTypeTag6);
+		vector.add(damageTypeTag7);
+		Enumeration<TagKey<DamageType>> enumeration = vector.elements();
+		Collection<TagKey<DamageType>> damageTypeTags = Collections.list(enumeration);
+		return damageTypeTags;
+	}
 	@NotNull
 	public static DamageSource of(@NotNull World world, RegistryKey<DamageType> key) {
 		return new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(key));
@@ -40,69 +59,18 @@ public class DamageTypes {
 	@NotNull
 	public static DamageSource applyArmorIgnoringDamageTags(@NotNull PlayerEntity entity, RegistryKey<DamageType> key){
 		World world = entity.getWorld();
-		TagKey<DamageType> damageTypeTag1 = DamageTypeTags.BYPASSES_ARMOR;
-		TagKey<DamageType> damageTypeTag2 = DamageTypeTags.BYPASSES_COOLDOWN;
-		TagKey<DamageType> damageTypeTag3 = DamageTypeTags.BYPASSES_EFFECTS;
-		TagKey<DamageType> damageTypeTag4 = DamageTypeTags.BYPASSES_ENCHANTMENTS;
-		TagKey<DamageType> damageTypeTag5 = DamageTypeTags.BYPASSES_SHIELD;
-		TagKey<DamageType> damageTypeTag6 = DamageTypeTags.BYPASSES_INVULNERABILITY;
-		TagKey<DamageType> damageTypeTag7 = DamageTypeTags.BYPASSES_RESISTANCE;
-		Vector<TagKey<DamageType>> vector = new Vector<>(6);
-		vector.add(damageTypeTag1);
-		vector.add(damageTypeTag2);
-		vector.add(damageTypeTag3);
-		vector.add(damageTypeTag4);
-		vector.add(damageTypeTag5);
-		vector.add(damageTypeTag6);
-		vector.add(damageTypeTag7);
-		Enumeration<TagKey<DamageType>> enumeration = vector.elements();
-		Collection<TagKey<DamageType>> damageTypeTags = Collections.list(enumeration);
-		world.getDamageSources().registry.entryOf(key).setTags(damageTypeTags);
+		world.getDamageSources().registry.entryOf(key).setTags(what());
 		return new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(key));
 	}
 	@NotNull
 	public static DamageSource applyArmorIgnoringDamageTags(@NotNull World world, RegistryKey<DamageType> key){
-		TagKey<DamageType> damageTypeTag1 = DamageTypeTags.BYPASSES_ARMOR;
-		TagKey<DamageType> damageTypeTag2 = DamageTypeTags.BYPASSES_COOLDOWN;
-		TagKey<DamageType> damageTypeTag3 = DamageTypeTags.BYPASSES_EFFECTS;
-		TagKey<DamageType> damageTypeTag4 = DamageTypeTags.BYPASSES_ENCHANTMENTS;
-		TagKey<DamageType> damageTypeTag5 = DamageTypeTags.BYPASSES_SHIELD;
-		TagKey<DamageType> damageTypeTag6 = DamageTypeTags.BYPASSES_INVULNERABILITY;
-		TagKey<DamageType> damageTypeTag7 = DamageTypeTags.BYPASSES_RESISTANCE;
-		Vector<TagKey<DamageType>> vector = new Vector<>(6);
-		vector.add(damageTypeTag1);
-		vector.add(damageTypeTag2);
-		vector.add(damageTypeTag3);
-		vector.add(damageTypeTag4);
-		vector.add(damageTypeTag5);
-		vector.add(damageTypeTag6);
-		vector.add(damageTypeTag7);
-		Enumeration<TagKey<DamageType>> enumeration = vector.elements();
-		Collection<TagKey<DamageType>> damageTypeTags = Collections.list(enumeration);
-		world.getDamageSources().registry.entryOf(key).setTags(damageTypeTags);
+		world.getDamageSources().registry.entryOf(key).setTags(what());
 		return new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(key));
 	}
 	@NotNull
 	public static DamageSource applyArmorIgnoringDamageTags(@NotNull MinecraftServer server, RegistryKey<DamageType> key){
 		World world = server.getOverworld();
-		TagKey<DamageType> damageTypeTag1 = DamageTypeTags.BYPASSES_ARMOR;
-		TagKey<DamageType> damageTypeTag2 = DamageTypeTags.BYPASSES_COOLDOWN;
-		TagKey<DamageType> damageTypeTag3 = DamageTypeTags.BYPASSES_EFFECTS;
-		TagKey<DamageType> damageTypeTag4 = DamageTypeTags.BYPASSES_ENCHANTMENTS;
-		TagKey<DamageType> damageTypeTag5 = DamageTypeTags.BYPASSES_SHIELD;
-		TagKey<DamageType> damageTypeTag6 = DamageTypeTags.BYPASSES_INVULNERABILITY;
-		TagKey<DamageType> damageTypeTag7 = DamageTypeTags.BYPASSES_RESISTANCE;
-		Vector<TagKey<DamageType>> vector = new Vector<>(6);
-		vector.add(damageTypeTag1);
-		vector.add(damageTypeTag2);
-		vector.add(damageTypeTag3);
-		vector.add(damageTypeTag4);
-		vector.add(damageTypeTag5);
-		vector.add(damageTypeTag6);
-		vector.add(damageTypeTag7);
-		Enumeration<TagKey<DamageType>> enumeration = vector.elements();
-		Collection<TagKey<DamageType>> damageTypeTags = Collections.list(enumeration);
-		world.getDamageSources().registry.entryOf(key).setTags(damageTypeTags);
+		world.getDamageSources().registry.entryOf(key).setTags(what());
 		return new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(key));
 	}
 }
